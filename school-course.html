@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .top-header {
+      background-color:#bebfda;
+      padding: 10px 20px;
+    }
+    .logo-img {
+      width: 100px;
+      height: 45px;
+      object-fit: contain;
+    }
+    .contact-btn {
+      background: linear-gradient(120deg, #6164a7, #6164a7);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 0;
+    }
+    .contact-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: skewX(-30deg);
+      transition: left 0.6s ease;
+      z-index: 1;
+    }
+    .contact-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px #6164a7;
+    }
+    .contact-btn:hover::before {
+      left: 100%;
+    }
+    @media (max-width: 767.98px) {
+      .top-header .d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      .contact-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+	/*--hero-section start--------------------------------------------------------------------------------------------*/
+	
+	.hero-section {
+      padding: 60px 15px;
+	  background-color: #f2f6fc;
+    }
+	
+	.rainbow-text {
+      background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0b2b63;
+    }
+
+    .highlight {
+      color: #6164a7;
+    }
+
+    .list-icon {
+      color: #6164a7;
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+
+    .btn-animated {
+      background: #bebfda;
+      color: #333;
+      padding: 10px 30px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-animated:hover {
+      background: #6164a7;
+      color: #fff;
+      transform: scale(1.05);
+      
+    }
+
+    .btn-animated::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.2);
+      transition: height 0.3s ease;
+    }
+
+    .btn-animated:hover::after {
+      height: 100%;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 500px;
+    }
+	
+	@keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-40px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .fade-in-left {
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+    @media (max-width: 767px) {
+      .hero-title {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .hero-section {
+        padding: 40px 15px;
+      }
+      .text-content {
+        text-align: center;
+      }
+    }
+	
+	/*--hero-section end--------------------------------------------------------------------------------------------*/
+	
+	.section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2  {
+      text-align: center;
+      font-size: 2.2rem;
+      //margin-bottom: 50px;
+      color: #333;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+	 // background:#f7f9fc;
+	  color:#0668d4;
+    }
+    .card i {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+	
+    .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: rgba(97, 100, 167, 0.8);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  transform: translateY(0);
+}
+	
+	/*--Footer start----------------------------------------------------------------------------------*/
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+footer img {
+  border-radius: 8px;
+  background:white;
+}
+/*--Footer end----------------------------------------------------------------------------------*/
+	</style>
+	</head>
+<body>
+
+<!-- Header Section -->
+<div class="top-header">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <div><img src="tuitionlogo.png" alt="Logo" class="logo-img" /></div>
+      <div class="d-flex gap-2 mt-2 mt-md-0">
+        <button class="contact-btn">+91 638 624 23XX</button>
+        <button class="contact-btn">education@the-tuition.com</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Header section end-------------------------------------------------------------------------------------------------->
+
+<!--Hero section start-------------------------------------------------------------------------------------------------->
+
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Text Content -->
+        <div class="col-lg-6 text-content fade-in-left">
+          <p class="mb-2" style="font-size:1.4rem;font-weight:bold;">Welcome to <span class="rainbow-text">theTuition</span></p>
+          <h1 class="hero-title mb-4">
+             Boost <span class="highlight">your grades</span> <br> with expert teachers
+          </h1>
+          <ul class="list-unstyled mb-3">
+            <li class="mb-2">
+              <i class="list-icon">&#9656;</i>
+              98% of our students show improved confidence in academics.
+            </li>
+            <li class="mb-3">
+              <i class="list-icon">&#9656;</i>
+              Over 5,000+ satisfied parents trust our education programs.
+            </li>
+          </ul>
+          <p><strong>Register Today</strong></p>
+          <button type="submit" class="btn btn-animated" onclick="location.href='freeDemoClass.html'">Book Demo Class</button>
+        </div>
+
+        <!-- Image Content -->
+        <div class="col-lg-6 text-center mt-5 mt-lg-0">
+          <img src="schoolcourse-image.png" class="hero-image" alt="theTuition">
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--Hero section end-------------------------------------------------------------------------------------------------->
+
+<section class="section" id="gallery">
+  <h2 data-aos="fade-up"><b><span style="color:#6164a7">School</span> Classes</b></h2>
+  <p style="text-align:center">Find the best teacher for academic excellence</p>
+  <div class="gallery-grid">
+    <div class="gallery-item" data-aos="zoom-in" onclick="location.href='school-science11.html'" style="cursor:pointer">
+      <img src="school1.png" alt="Class 11 Science">
+      <div class="overlay">Class 11 Science</div>
+    </div>
+    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" onclick="location.href='school-science12.html'" style="cursor:pointer">
+      <img src="school2.png" alt="Class 12 Science">
+      <div class="overlay">Class 12 Science</div>
+    </div>
+    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" onclick="location.href='school-commerce11.html'" style="cursor:pointer">
+      <img src="school3.png" alt="Class 11 Commerce</">
+      <div class="overlay">Class 11 Commerce</div>
+    </div>
+    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-commerce12.html'" style="cursor:pointer">
+      <img src="school4.png" alt="Class 12 Commerce</">
+      <div class="overlay">Class 12 Commerce</div>
+    </div>
+	 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-arts11.html'" style="cursor:pointer">
+      <img src="school5.png" alt="Class 11 Arts">
+      <div class="overlay">Class 11 Arts</div>
+    </div>
+	 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-arts12.html'" style="cursor:pointer">
+      <img src="school6.png" alt="Class 12 Arts">
+      <div class="overlay">Class 12 Arts</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class10.html'" style="cursor:pointer">
+      <img src="school7.png" alt="Class 10">
+      <div class="overlay">Class 10</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class9.html'" style="cursor:pointer">
+      <img src="school8.png" alt="Class 9">
+      <div class="overlay">Class 9</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class8.html'" style="cursor:pointer">
+      <img src="school9.png" alt="Class 8">
+      <div class="overlay">Class 8</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class7.html'" style="cursor:pointer">
+      <img src="school10.png" alt="Class 7">
+      <div class="overlay">Class 7</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class6.html'" style="cursor:pointer">
+      <img src="school11.png" alt="Class 6">
+      <div class="overlay">Class 6</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class5.html'" style="cursor:pointer">
+      <img src="school12.png" alt="Class 5">
+      <div class="overlay">Class 5</div>
+    </div>
+	<div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" onclick="location.href='school-class1-4.html'" style="cursor:pointer">
+      <img src="school13.png" alt="Class 1 to 4">
+      <div class="overlay">Class 1 to 4</div>
+    </div>
+  </div>
+</section>
+
+<!--footer Start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Footer -->
+<footer class=" text-white pt-4 pb-3 mt-5" style="background:#6164a7">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo and Description -->
+      <div class="col-md-4 col-sm-12 mb-4 text-center text-md-left">
+        <img src="tuitionlogo.png" alt="The Tuition Logo" width="120" class="mb-2">
+        <p>Helping students and teachers connect for better learning and growth.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="TheTuition.html" class="footer-link">Home</a></li>
+          <li><a href="studentEnroll.html" class="footer-link">Enroll as Student</a></li>
+          <li><a href="TeacherEnroll.html" class="footer-link">Enroll as Teacher</a></li>
+          <li><a href="aboutus.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5 onclick="location.href='contact.html'" style="cursor:pointer">Contact Us</h5>
+        <p>📞 +91 638 624 23XX</p>
+        <p>✉️ education@the-tuition.com</p>
+        <p>📍 Raebareli, Uttar Pradesh</p>
+      </div>
+
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 The Tuition. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!--footer end-------------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>

@@ -1,0 +1,1796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TheTuition</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+<style>
+/*--Menu start----------------------------------------------------------------------------------*/
+ .top-blue-bar {
+      background: linear-gradient(90deg, #ef3938, #f76333, #f58e29, #fbb428, #6bb657, #31a4a9, #6164a7);
+      color: white;
+      font-size: 14px;
+      padding: 5px 15px;
+    }
+
+    .main-navbar {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .main-navbar .nav-link {
+      color: #000;
+      font-weight: 500;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-icon {
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .dropdown-menu {
+      border-bottom: 5px solid #6164a7;
+      border-radius: 10px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-link:hover {
+      color: #6164a7;
+    }
+
+    .glow-on-hover {
+      width: 150px;
+      height: 30px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+
+    .glow-on-hover:before {
+      content: '';
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    .glow-on-hover:hover:before {
+      opacity: 1;
+    }
+
+    .glow-on-hover:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    .rotating-border-btn {
+      position: relative;
+      padding: 8px 28px;
+      font-size: 16px;
+      background: pink;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 40px;
+    }
+
+    .rotating-border-btn::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff, #ff00cc);
+      z-index: -1;
+      border-radius: 12px;
+      animation: rotateBorder 4s linear infinite;
+      background-size: 300% 300%;
+    }
+
+    .rotating-border-btn::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: #111;
+      z-index: -1;
+      border-radius: 8px;
+    }
+
+    @keyframes rotateBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 767px) {
+      .dropdown-menu {
+        width: 100% !important;
+        position: static !important;
+        float: none !important;
+      }
+
+      .top-blue-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+	
+/*--Menu End----------------------------------------------------------------------------------*/
+/*--Get in touch start----------------------------------------------------------------------------------*/
+.overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .form-content {
+      padding: 30px;
+    }
+
+    .form-image {
+      width: 100%;
+      height: 250px;
+      background: url('get-touch1.png') no-repeat center center/cover;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #6164a7;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+
+    .get-touch {
+      background: #6164a7;
+      color: white;
+    }
+
+    .get-touch:hover {
+      background: linear-gradient(90deg, #ef3938, #f76333, #f58e29, #fbb428, #6bb657, #31a4a9, #6164a7);
+      color: white;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .form-layout {
+        display: flex;
+      }
+
+      .form-content,
+      .form-image {
+        flex: 1;
+      }
+
+      .form-image {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .form-content {
+        padding: 20px;
+      }
+
+      .form-image {
+        height: 200px;
+      }
+
+      .success-message {
+        font-size: 14px;
+      }
+
+      .form-container {
+        border-radius: 5px;
+      }
+    }
+/*--Get in touch End----------------------------------------------------------------------------------*/
+/*--top header start----------------------------------------------------------------------------------*/
+.hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+	  //margin-top:6%;
+    }
+
+    .slides {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .dark-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      z-index: 3;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      animation: shine 3s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; text-shadow: 0 0 15px black; }
+    }
+
+    @media screen and (max-width: 768px) {
+      
+      .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+    }
+
+    @media screen and (max-width: 414px) {
+      .hero-text h1 {
+        font-size: 1.5rem;
+      }
+    }
+/*--top header end----------------------------------------------------------------------------------*/
+/*--enfo-card start----------------------------------------------------------------------------------*/
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.8rem;
+  color:black;
+  //background: linear-gradient(90deg, #ef3938, #f76333, #f58e29, #fbb428, #6bb657, #31a4a9, #6164a7);
+  border-radius:5px;
+  
+  
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+
+.info-card {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  height: 90%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.info-card p{
+//text-align:justify;
+}
+
+.section {
+  padding: 40px 20px;
+  position: relative;
+}
+
+.svg-connector {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card-container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .typing-effect {
+    font-size: 1.4rem;
+	white-space: normal;
+    word-break: break-word;
+  }
+
+  .info-card {
+    font-size: 0.95rem;
+    padding: 16px;
+  }
+
+  .svg-connector {
+    display: none;
+  }
+}
+
+/*--enfo-card end----------------------------------------------------------------------------------*/
+
+/*--rainbow-video start----------------------------------------------------------------------------------*/
+
+.hero-section {
+      //padding: 40px 0;
+      background: white;
+      overflow-x: hidden;
+    }
+
+    /* Rainbow Border */
+    .rainbow-border {
+      position: relative;
+      padding: 8px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .rainbow-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+      background-size: 400% 400%;
+      animation: rainbow 6s linear infinite;
+      z-index: 1;
+      border-radius: 15px;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .video-wrapper {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .enroll-boxx {
+      margin-top: 15px;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      font-weight: 600;
+    }
+
+    .rainbow-text {
+      background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    .tick {
+      color: #6164a7;
+      margin-right: 8px;
+	  font-weight:bold;
+	  font-size:1.5rem;
+    }
+
+    /* Prevent image/video overflow */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+	
+/*--rainbow-video end----------------------------------------------------------------------------------*/
+
+/*--course-section start----------------------------------------------------------------------------------*/
+
+.course-section {
+      background: linear-gradient(to bottom right, #6164a7, #f5f5f5);
+      padding: 30px 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .section-title {
+      background-color: white;
+      color: #6164a7;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 25px;
+      font-size: 20px;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      text-align: left;
+	  cursor:pointer;
+    }
+
+     .course-card:hover {
+      border-right: 4px solid white;
+      border-bottom: 4px solid white;
+    }
+
+    .course-card img {
+      max-height: 130px;
+      width: auto;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover img {
+      transform: scale(1.3);
+    }
+
+    .course-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 0;
+	  color:white;
+    }
+
+    /*.bg-yellow { background-color: #fcd367; }
+    .bg-orange { background-color: #f9a86c; }
+    .bg-green { background-color: #7ee5c9; }
+    .bg-lightblue { background-color: #cbe5f6; }*/
+
+    /* For screens 767px and below */
+    @media (max-width: 767px) {
+      .course-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .course-card img {
+        margin: 0 auto;
+      }
+
+      .course-title {
+        font-size: 16px;
+      }
+    }
+
+    /* For screens 414px and below */
+    @media (max-width: 414px) {
+      .course-card {
+        padding: 15px;
+      }
+
+      .course-title {
+        font-size: 15px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        padding: 6px 16px;
+      }
+    }
+
+/*--course-section end----------------------------------------------------------------------------------*/
+/*--demo-section start----------------------------------------------------------------------------------*/
+
+.demo-section {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative; /* Add this */
+      padding: 40px 0;
+    }
+
+    .demo-content h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .highlight {
+      color: #6164a7;
+    }
+
+    .demo-btn {
+      position: relative;
+      background: linear-gradient(120deg, #6164a7, #6164a7);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 5px #6164a7;
+      z-index: 0;
+    }
+
+    .demo-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: skewX(-30deg);
+      transition: left 0.6s ease;
+      z-index: 1;
+    }
+
+    .demo-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px #6164a7;
+    }
+
+    .demo-btn:hover::before {
+      left: 100%;
+    }
+
+    .demo-img-container {
+      position: relative;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden; /* Add this to prevent horizontal overflow */
+    }
+
+    .blob-bg {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      max-width: 300px; /* Restrict width */
+      height: auto;
+      z-index: 1;
+      left: 50%;
+      transform: translateX(-50%); /* Centered */
+      pointer-events: none;
+    }
+
+    .demo-img {
+      position: relative;
+      z-index: 2;
+      max-width: 250px;
+    }
+
+    @media (max-width: 768px) {
+      .demo-content {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .demo-img-container {
+        margin-top: 10px;
+      }
+
+      .blob-bg {
+        width: 250px;
+      }
+
+      .demo-img {
+        max-width: 200px;
+      }
+    }
+/*--demo-section end----------------------------------------------------------------------------------*/
+
+/*--course-kid start----------------------------------------------------------------------------------*/
+
+    .heading-kids {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .heading-kids span {
+      color: #6164a7;
+      text-decoration: underline wavy #bebfda 3px;
+    }
+
+    .course-kid-card {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 10px;
+      width: 100%;
+      max-width: 300px;
+      background-color: #fff;
+	  cursor:pointer;
+    }
+
+    .course-kid-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-right: 15px;
+    }
+
+    .abacus { background-color: #fbd0d0; color: #ef3938; }
+    .vedic { background-color: #fddace; color: #f76333; }
+    .public-speaking { background-color: #fde6ce; color: #f58e29; }
+    .phonics { background-color: #feeecd; color: #fbb428; }
+    .grammar { background-color:  #d0e8ca; color: #6bb657; }
+    .personality { background-color: #d7f2f4; color: #31a4a9; }
+
+    .card-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    /* Scroll Fade-in From Left */
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in-left.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      .card-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .course-kid-card {
+        width: 90%;
+        max-width: none;
+      }
+    }
+
+/*--course-kid end----------------------------------------------------------------------------------*/
+/*--feature-card start----------------------------------------------------------------------------------*/
+
+.feature-section {
+      background: linear-gradient(to bottom right, #6164a7, #f5f5f5);
+      padding: 60px 15px;
+	  
+    }
+
+    .feature-left h2 {
+      font-weight: 800;
+      font-size: 38px;
+      color: white;
+    }
+
+    .feature-left p {
+      font-size: 16px;
+      color: white;
+      margin-top: 15px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .feature-card h5 {
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 15px;
+      color: #0f172a;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in-left.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (max-width: 767px) {
+      .feature-left h2,
+      .feature-left p {
+        text-align: center;
+      }
+    }
+
+/*--feature-card end----------------------------------------------------------------------------------*/
+
+/*--stats-section start----------------------------------------------------------------------------------*/
+
+.stats-section {
+      padding: 60px 0;
+    }
+    .stat-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease-in-out;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+    .stat-card h2 {
+      font-size: 2rem;
+      margin: 0;
+      font-weight: bold;
+    }
+    .stat-card p {
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #333;
+    }
+    .yellow h2 { color: #f7c948; }
+    .orange h2 { color: #f97316; }
+    .green h2 { color: #34d399; }
+    .blue h2 { color: #3b82f6; }
+
+/*--stats-section end----------------------------------------------------------------------------------*/
+
+/*--Teacher-slider start----------------------------------------------------------------------------------*/
+
+.our-teacher {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 25px;
+	  font-size:2.5rem;
+    }
+
+    .slider-container {
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-behavior: smooth;
+      padding: 10px 0;
+      transition: transform 0.3s ease;
+      align-items: center;
+    }
+
+    .slider-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-wrapper {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      flex: 0 0 25%;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 3px solid #6164a7;
+    }
+
+    .card h5, .card p {
+      color: #6164a7;
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .delete-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .nav-btn {
+      background: #6164a7;
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      margin: 0 8px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav-btn:hover {
+      background: #4d5094;
+    }
+
+    /* Mobile: show only one card */
+    @media (max-width: 767px) {
+      .card {
+        flex: 0 0 100%;
+        scroll-snap-align: center;
+      }
+
+      .slider-wrapper {
+        scroll-snap-type: x mandatory;
+        padding: 10px 20px;
+      }
+    }
+
+/*--Teacher-slider end----------------------------------------------------------------------------------*/
+
+/*--subscribe start----------------------------------------------------------------------------------*/
+
+.wrapper-subscribe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+	  background:#bebfda;
+    }
+    .subscribe-container {
+      color: white;
+      padding: 30px;
+      max-width: 1000px;
+      width: 100%;
+    }
+    .subscribe-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .subscribe-text {
+      flex: 1 1 300px;
+      padding: 10px;
+    }
+    .subscribe-form {
+      flex: 1 1 300px;
+      padding: 10px;
+    }
+    .message {
+      margin-top: 15px;
+      display: none;
+      font-weight: bold;
+      color: #fff;
+    }
+
+/*--subscribe end----------------------------------------------------------------------------------*/
+
+/*--Rating start----------------------------------------------------------------------------------*/
+
+ .rating-banner {
+      background-color: #6164a7;
+      color: white;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .rating-item {
+      display: inline-block;
+      padding: 0 50px;
+      border-right: 2px solid white;
+    }
+
+    @media (max-width: 768px) {
+      .scrolling-text {
+        font-size: 0.9rem;
+      }
+
+      .rating-item {
+        padding: 0 30px;
+      }
+    }
+
+/*--Rating end----------------------------------------------------------------------------------*/
+
+
+
+/*--Footer start----------------------------------------------------------------------------------*/
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+footer img {
+  border-radius: 8px;
+  background:white;
+}
+/*--Footer end----------------------------------------------------------------------------------*/
+	   
+</style>
+</head>
+<body>
+
+<!-- Top Gradient Bar -->
+<div class="top-blue-bar d-flex justify-content-between align-items-center flex-wrap">
+  <div><i class="fas fa-phone"></i> +91 638 624 23XX</div>
+  <div><i class="fas fa-envelope"></i> education@the-tuition.com</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="tuitionlogo.png" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start">
+
+        <li class="nav-item">
+          <a class="nav-link" href="TheTuition.html">Home</a>
+        </li>
+
+        <!-- Enroll Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Enroll</a>
+          <div class="dropdown-menu p-3">
+            <a href="studentEnroll.html" class="dropdown-link"><i class="fa-solid fa-children"></i>&nbsp;For Students</a>
+            <a href="TeacherEnroll.html" class="dropdown-link"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;For Teachers</a>
+          </div>
+        </li>
+
+        <!-- Insights Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link" href="aboutus.html">About Us</a>
+        </li>
+
+        <!-- About Us Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+        <!-- Get in Touch Button -->
+        <li class="nav-item mt-2 mt-lg-0">
+          <button class="glow-on-hover" onclick="openForm()">Get in Touch</button>
+        </li>
+
+        <!-- Logout Button -->
+        <li class="nav-item ms-2 mt-2 mt-lg-0">
+          <button class="rotating-border-btn" id="logoutBtn">Logout</button>
+        </li>
+
+        <!-- WhatsApp Icon -->
+        <li class="nav-item ms-2">
+          <a href="#" class="nav-link">
+            <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="height: 28px;">
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--get in touch start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Overlay Form -->
+<div class="overlay" id="formOverlay">
+  <div class="form-container">
+    <div class="close-btn" onclick="closeForm()">&times;</div>
+    <div class="form-layout flex-column flex-md-row">
+      <div class="form-content">
+        <h3 class="mb-2 text-center" style="color:#6164a7">Get In Touch!</h3>
+        <div class="success-message" id="successMsg">✅ Will contact you soon.</div>
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name*</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile Number*</label>
+            <input type="tel" class="form-control" id="mobile" pattern="[0-9]{10}" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">You are a*</label><br />
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="parent" value="Parent" required />
+              <label class="form-check-label" for="parent">Parent</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="student" value="Student" />
+              <label class="form-check-label" for="student">Student</label>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn get-touch mt-3">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="form-image"></div>
+    </div>
+  </div>
+</div>
+<!--get in touch end-------------------------------------------------------------------------------------------------------------------------->
+<!--top header start-------------------------------------------------------------------------------------------------------------------------->
+<section class="hero">
+    <div class="slides">
+      <div class="slide active" style="background-image: url('header1.jpg');"></div>
+      <div class="slide" style="background-image: url('header2.jpg');"></div>
+      <div class="slide" style="background-image: url('header3.jpg');"></div>
+    </div>
+    <div class="dark-overlay"></div>
+    <div class="hero-text">
+      <h1><span style="color:#ef3938">Learn</span> <span style="color:#f76333">with</span> <span style="color:#f58e29">Clarity</span>, <span style="color:#fbb428">Grow</span> <span style="color:#6bb657">with</span> 
+	 <span style="color:#31a4a9"> Confidence</span></h1>
+    </div>
+  </section>
+<!--top header end-------------------------------------------------------------------------------------------------------------------------->
+<!--enfo-card start-------------------------------------------------------------------------------------------------------------------------->
+<div class="container section text-center">
+    <div class="mb-4 p-4  rounded shadow position-relative bg-white fade-in-left"style="border:2px solid #6164a7">
+      <h2 id="typingText" class="typing-effect">Welcome to <span class="rainbow-text">theTuition</span> Classes</h2>
+      <p class="text-muted" style="font-weight:bold">Every child can learn — just not in the same way. We find their way.</p>
+    </div><!-- SVG Connector Lines -->
+<svg class="svg-connector" xmlns="http://www.w3.org/2000/svg">
+  <line x1="50%" y1="0" x2="12.5%" y2="100" stroke="#bbb" stroke-dasharray="6,6" stroke-width="2"/>
+  <line x1="50%" y1="0" x2="37.5%" y2="100" stroke="#bbb" stroke-dasharray="6,6" stroke-width="2"/>
+  <line x1="50%" y1="0" x2="62.5%" y2="100" stroke="#bbb" stroke-dasharray="6,6" stroke-width="2"/>
+  <line x1="50%" y1="0" x2="87.5%" y2="100" stroke="#bbb" stroke-dasharray="6,6" stroke-width="2"/>
+</svg>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 card-container">
+  <div class="col fade-in-left">
+    <div class="info-card bg-light shadow"style="border:2px solid #f58e29">
+      <h5><strong>✨ Join [theTuition]</strong></h5>
+      <p>🎓Class 1 - 10 -> All subjects.</p>
+      <p>🎓Class 11 - 12 ->  Science, Commerce, & Arts.</p>
+    </div>
+  </div>
+  <div class="col fade-in-left">
+    <div class="info-card bg-light shadow"style="border:2px solid #fbb428">
+      <h5><strong>✨ Learn with Confidence</strong></h5>
+      <p>🎓Online & Offline Modes Available!</p>
+	  <p>🎓We offer expert guidance.</p>
+    </div>
+  </div>
+  <div class="col fade-in-left">
+    <div class="info-card bg-light shadow"style="border:2px solid #6bb657">
+	<h5><strong>✨ Our Priority</strong></h5>
+      <p>🎓Concept Clarity + Regular Tests.</p>
+      <p>🎓Innovative Teaching Methods.</p>
+      <p>🎓Individual Attention To Each Student.</p>
+    </div>
+  </div>
+  <div class="col fade-in-left">
+    <div class="info-card bg-light shadow"style="border:2px solid #31a4a9">
+      <h5></strong>✨ Why Choose Us?</strong></h5>
+      <p>🎓Free Demo Class.</p>
+      <p>🎓Weekly Progress Report for Parents.</p>
+      <p>🎓Affordable Fees & Friendly Environment.</p>
+    </div>
+  </div>
+</div>
+
+  </div> 
+<!--enfo-card end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--rainbow-video start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container hero-section">
+    <div class="row align-items-center">
+      <!-- Left Side -->
+      <div class="col-md-6 mb-4">
+        <div class="rainbow-border">
+          <div class="video-wrapper">
+            <video controls poster="">
+              <source src="theTuitionvideo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="enroll-boxx d-flex align-items-center mt-3">
+          <span class="me-2">
+            <img src="https://img.icons8.com/ios-filled/24/000000/student-male.png" />
+          </span>
+          <span><strong>20K+</strong> Enrolled Learners</span>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="col-md-6">
+        <div class="mx-auto text-start px-3 px-md-5 fade-in-left">
+          <h6 class="text-muted">ABOUT US</h6>
+          <h2>
+            <strong>India’s best <span class="rainbow-text" style="text-decoration: underline;">theTuition</span></strong><br>
+            website for quality education
+          </h2>
+          <p class="text-muted">
+            We are committed to providing personalised online classes that cater to the unique learning needs of each student.
+          </p>
+          <ul class="list-unstyled">
+            <li><span class="tick">&#10003;</span> <strong style="font-size:1.3rem">Expert Trainers</strong></li>
+            <li><span class="tick">&#10003;</span> <strong style="font-size:1.3rem">1-on-1 Live Tuition</strong></li>
+            <li><span class="tick">&#10003;</span> <strong style="font-size:1.3rem">Flexible Timings</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--rainbow-video end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--course-section start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="course-section mt-5">
+    <div class="container">
+      <div class="section-title">Popular Courses</div>
+      <div class="row g-4">
+
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="course-card " style="background:#f58e29" onclick="location.href='shortterm-course.html'">
+            <div class="course-title fade-in-left">Short Term<br>Courses</div>
+            <img src="course1.png" alt="Short Term Courses">
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="course-card" style="background:#fbb428" onclick="location.href='language-course.html'">
+            <div class="course-title fade-in-left">Language<br>Courses</div>
+            <img src="course2.png" alt="Language Courses">
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="course-card" style="background:#6bb657" onclick="location.href='coding-course.html'">
+            <div class="course-title fade-in-left">Coding<br>Classes</div>
+            <img src="course3.png" alt="Coding Classes">
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+          <div class="course-card" style="background:#f76333" onclick="location.href='school-course.html'">
+            <div class="course-title text-capitalize fade-in-left">School<br>Classes</div>
+            <img src="course4.png" alt="School Classes">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!--course-section end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--demo-section start-------------------------------------------------------------------------------------------------------------------------->
+
+<section class="demo-section container">
+    <div class="row align-items-center fade-in-left">
+      
+      <!-- Left: Text Content -->
+      <div class="col-md-6 demo-content">
+        <h2>Book a <span class="highlight">Free Demo</span> Session Now</h2>
+        <button class="demo-btn" onclick="location.href='freeDemoClass.html'">Book a free demo</button>
+      </div>
+
+      <!-- Right: Image + Blob -->
+      <div class="col-md-6 demo-img-container">
+        <img src="free-demo.png" alt="Student" class="demo-img" />
+        <div class="blob-bg"><!-- blob image if needed here --></div>
+      </div>
+
+    </div>
+  </section>
+
+<!--demo-section end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--course-kid start-------------------------------------------------------------------------------------------------------------------------->
+
+ <h2 class="heading-kids mt-4">Courses for <span>kids</span></h2>
+
+  <!-- Row of 3 cards -->
+  <div class="card-row fade-in-left">
+    <div class="course-kid-card abacus" onclick="location.href='kid-abacus.html'"><i class="fa-solid fa-calculator card-icon"></i> Abacus</div>
+    <div class="course-kid-card vedic" onclick="location.href='kid-vadicmaths.html'"><i class="fa-solid fa-dice card-icon"></i> Vedic Maths</div>
+    <div class="course-kid-card public-speaking" onclick="location.href='kid-publicspeaking.html'"><i class="fa-solid fa-user-tie card-icon"></i> Public Speaking</div>
+  </div>
+
+  <!-- Row of 2 cards -->
+  <div class="card-row fade-in-left">
+    <div class="course-kid-card phonics" onclick="location.href='kid-PhonicsClasses.html'"><i class="fa-solid fa-font card-icon"></i> Phonics Classes</div>
+    <div class="course-kid-card grammar" onclick="location.href='kid-englishgrammar.html'"><i class="fa-solid fa-book-open card-icon"></i> English Grammar</div>
+  </div>
+
+  <!-- Row of 1 card -->
+  <div class="card-row fade-in-left">
+    <div class="course-kid-card personality" onclick="location.href='kid-PersonalityDevelopment.html'"><i class="fa-solid fa-user-astronaut card-icon"></i> Personality Development</div>
+  </div>
+<!--course-kid end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--feature-card start-------------------------------------------------------------------------------------------------------------------------->
+
+<section class="feature-section mt-5">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left Column -->
+      <div class="col-md-5 fade-in-left">
+        <div class="feature-left">
+          <h2>Online/Offline Learning With <span class="rainbow-text">theTuition</span></h2>
+          <p>We will connect you to your teachers & peers. Let us tell you what makes us one of the Best Online/Offline Tuition websites.</p>
+        </div>
+      </div>
+
+      <!-- Right Column with 2 rows of 3 cards -->
+      <div class="col-md-7">
+        <div class="row g-3">
+          <!-- Top Row -->
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card  h-100">
+              <img src="feature1.png" alt="Teacher" />
+              <h5>Classes for Students</h5>
+              <p>We offer both online & offline classes for school & college students.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card  h-100">
+              <img src="feature2.png" alt="Demo" />
+              <h5>Book Demo Class</h5>
+              <p>Choose your subject & take a free trial class.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card  h-100">
+              <img src="feature3.png" alt="Language" />
+              <h5>Regional Language</h5>
+              <p>Learn in your mother tongue with ease.</p>
+            </div>
+          </div>
+
+          <!-- Bottom Row -->
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card  h-100">
+              <img src="feature4.png" alt="Support" />
+              <h5>Peer Discussions</h5>
+              <p>Join discussion forums with peers & teachers.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card  h-100">
+              <img src="feature5.png" alt="Result" />
+              <h5>Student's Results</h5>
+              <p>Every student's results & reviews are important to us.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 fade-in-left">
+            <div class="feature-card h-100">
+              <img src="feature6.png" alt="Quality" />
+              <h5>Quality Tutors</h5>
+              <p>Learn from verified and experienced tutors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--feature-card end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--stats-section start-------------------------------------------------------------------------------------------------------------------------->
+
+<section class="stats-section">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 col-sm-6 mb-4 fade-in-left">
+          <div class="stat-card yellow">
+            <h2 class="counter" data-target="3496">0</h2>
+            <p>HAPPY PARENTS/STUDENTS</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 fade-in-left">
+          <div class="stat-card orange">
+            <h2 class="counter" data-target="10000">0</h2>
+            <p>CLASS COMPLETED</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 fade-in-left">
+          <div class="stat-card green">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>SATISFACTION RATE</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4 fade-in-left">
+          <div class="stat-card blue">
+            <h2 class="counter" data-target="1000">0</h2>
+            <p>CERTIFIED TUTORS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--stats-section end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--Teacher-slider start-------------------------------------------------------------------------------------------------------------------------->
+<div class="slider-container mt-3">
+  <h2 class="our-teacher fade-in-left">Our Dedicated <span style="color:#6164a7;">Teachers</span></h2>
+  <div id="slider" class="slider-wrapper"></div>
+  <div class="controls">
+    <button id="prev" class="nav-btn">⟵ Prev</button>
+    <button id="next" class="nav-btn">Next ⟶</button>
+  </div>
+</div>
+
+<!--Teacher-slider end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--subscribe start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="wrapper-subscribe mt-5">
+    <div class="subscribe-container">
+      <div class="subscribe-row">
+        <div class="subscribe-text">
+          <h2><strong>Subscribe</strong></h2>
+          <p>
+            Subscribe now and receive weekly educational material on your chosen subject, updates on new courses, interesting posts, popular book suggestions, and much more!
+          </p>
+        </div>
+        <div class="subscribe-form">
+          <div class="input-group">
+            <input type="email" id="email" class="form-control" placeholder="Your E-mail Address" />
+            <div class="input-group-append">
+              <button class="btn" style="background:#6164a7;color:white" onclick="subscribe()">Subscribe</button>
+            </div>
+          </div>
+          <div class="message" id="message">✅ Successfully Subscribed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--subscribe end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--Rating start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="rating-banner">
+  <marquee  scrollamount="8">
+    <div class="scrolling-text">
+      <div class="rating-item">QUALITY TEACHER ⭐ 4.9/5</div>
+      <div class="rating-item">PUNCTUALITY AND PROFESSIONALISM ⭐ 4.8/5</div>
+      <div class="rating-item">STUDENT SATISFACTION ⭐ 4.9/5</div>
+      <div class="rating-item">SEAMLESS LEARNING EXPERIENCE ⭐ 5/5</div>
+      <div class="rating-item" style="border-right:none">PERSONALIZED ATTENTION ⭐ 4.7/5</div>
+    </div>
+	</marquee>
+  </div>
+
+<!--Rating end-------------------------------------------------------------------------------------------------------------------------->
+
+<!--footer Start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Footer -->
+<footer class=" text-white pt-4 pb-3 mt-1" style="background:#6164a7">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo and Description -->
+      <div class="col-md-4 col-sm-12 mb-4 text-center text-md-left">
+        <img src="tuitionlogo.png" alt="The Tuition Logo" width="120" class="mb-2">
+        <p>Helping students and teachers connect for better learning and growth.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="TheTuition.html" class="footer-link">Home</a></li>
+          <li><a href="studentEnroll.html" class="footer-link">Enroll as Student</a></li>
+          <li><a href="TeacherEnroll.html" class="footer-link">Enroll as Teacher</a></li>
+		  <li><a href="aboutus.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5 onclick="location.href='contact.html'" style="cursor:pointer">Contact Us</h5>
+        <p>📞 +91 638 624 23XX</p>
+        <p>✉️ education@the-tuition.com</p>
+        <p>📍 Raebareli, Uttar Pradesh</p>
+      </div>
+
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 The Tuition. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!--footer end-------------------------------------------------------------------------------------------------------------------------->
+
+ 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Check if logged in
+if (!sessionStorage.getItem("loggedIn")) {
+  window.location.href = "index.html";
+}
+
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  sessionStorage.clear();
+  window.location.href = "index.html";
+});
+
+// get in Touch
+function openForm() {
+    document.getElementById("formOverlay").style.display = "flex";
+  }
+
+  function closeForm() {
+    document.getElementById("formOverlay").style.display = "none";
+    document.getElementById("contactForm").reset();
+    document.getElementById("successMsg").style.display = "none";
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const role = document.querySelector('input[name="role"]:checked');
+
+    if (name && mobile && role) {
+      document.getElementById("successMsg").style.display = "block";
+      setTimeout(() => {
+        closeForm();
+      }, 2000);
+    } else {
+      alert("Please fill all fields");
+    }
+    return false;
+  }
+//top header
+(function(){
+ const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function changeSlide() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+	setInterval(changeSlide, 5000);
+	})();
+  
+  //course-kid
+  
+   function handleScrollFadeIn() {
+      const elements = document.querySelectorAll('.fade-in-left');
+      const triggerBottom = window.innerHeight * 0.9;
+
+      elements.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScrollFadeIn);
+    window.addEventListener('load', handleScrollFadeIn);
+  
+  //feature-card
+  
+  function handleScrollFadeIn() {
+    const elements = document.querySelectorAll('.fade-in-left');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('show');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', handleScrollFadeIn);
+  window.addEventListener('load', handleScrollFadeIn);
+  
+  //subscribe
+  
+  function subscribe() {
+      const emailInput = document.getElementById('email');
+      const message = document.getElementById('message');
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+
+      if (email && emailPattern.test(email)) {
+        message.style.display = 'block';
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 3000);
+        emailInput.value = ''; // clear email input
+      } else {
+        alert("Please enter a valid email address.");
+      }
+    }
+	
+	//Teacher-slider
+	
+	
+  const slider = document.getElementById("slider");
+  let slideIndex = 0;
+
+  let teachers = JSON.parse(localStorage.getItem("teachers")) || [];
+
+  function renderSlides() {
+    slider.innerHTML = "";
+    teachers.forEach((t, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <span class="delete-icon" onclick="deleteTeacher(${index})">&#128465;</span>
+        <img src="${t.photo}" alt="Teacher Photo" />
+        <h5>${t.fullName}</h5>
+        <p><strong>Phone:</strong> ${t.phone}</p>
+        <p><strong>Email:</strong> ${t.email}</p>
+        <p><strong>Subject:</strong> ${t.subject}</p>
+      `;
+      slider.appendChild(card);
+    });
+  }
+
+  function deleteTeacher(index) {
+    teachers.splice(index, 1);
+    localStorage.setItem("teachers", JSON.stringify(teachers));
+    renderSlides();
+    slideIndex = 0;
+    scrollToCard();
+  }
+
+  function scrollToCard() {
+    const cardWidth = slider.querySelector(".card")?.offsetWidth || 0;
+    const gap = 20; // match your CSS `gap: 20px`
+    const scrollAmount = slideIndex * (cardWidth + gap);
+    slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
+  }
+
+  document.getElementById("next").onclick = () => {
+    const maxVisible = window.innerWidth <= 767 ? 1 : 4;
+    if (teachers.length > 0) {
+      slideIndex = Math.min(slideIndex + maxVisible, teachers.length - maxVisible);
+      scrollToCard();
+    }
+  };
+
+  document.getElementById("prev").onclick = () => {
+    const maxVisible = window.innerWidth <= 767 ? 1 : 4;
+    slideIndex = Math.max(slideIndex - maxVisible, 0);
+    scrollToCard();
+  };
+
+  renderSlides();
+  
+  // stats-section
+  
+   function animateCounter(counterEl) {
+      const target = +counterEl.getAttribute("data-target");
+      const duration = 2000;
+      const step = target / (duration / 10);
+      
+      let count = 0;
+
+      const updateCounter = () => {
+        count += step;
+        if (count >= target) {
+          counterEl.innerText = target.toLocaleString();
+        } else {
+          counterEl.innerText = Math.ceil(count).toLocaleString();
+          setTimeout(updateCounter, 10);
+        }
+      };
+
+      updateCounter();
+    }
+
+    function triggerCountersOnScroll() {
+      const counters = document.querySelectorAll(".counter");
+      let triggered = false;
+
+      window.addEventListener("scroll", () => {
+        const section = document.querySelector(".stats-section");
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (!triggered && sectionTop < window.innerHeight) {
+          counters.forEach(counter => animateCounter(counter));
+          triggered = true;
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", triggerCountersOnScroll);
+  </script>
+
+
+</script>
+
+</body>
+</html>

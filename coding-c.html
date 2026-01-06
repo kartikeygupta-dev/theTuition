@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>C# Coding</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .top-header {
+      background-color:#bebfda;
+      padding: 10px 20px;
+    }
+    .logo-img {
+      width: 100px;
+      height: 45px;
+      object-fit: contain;
+    }
+    .contact-btn {
+      background: linear-gradient(120deg, #6164a7, #6164a7);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 0;
+    }
+    .contact-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: skewX(-30deg);
+      transition: left 0.6s ease;
+      z-index: 1;
+    }
+    .contact-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px #6164a7;
+    }
+    .contact-btn:hover::before {
+      left: 100%;
+    }
+    @media (max-width: 767.98px) {
+      .top-header .d-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+      .contact-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+	/*--Section start-----------------------------------------------------------------------------------------------*/
+	.section {
+      padding: 60px 15px;
+    }
+
+    .content h3 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      font-weight: bold;
+    }
+
+    .fixed-image {
+      position: sticky;
+      top: 100px;
+    }
+
+    .abacus-img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+	
+	.btn-animated {
+      background: #bebfda;
+      color: #333;
+      padding: 10px 30px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-animated:hover {
+      background: #6164a7;
+      color: #fff;
+      transform: scale(1.05);
+      
+    }
+
+    .btn-animated::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.2);
+      transition: height 0.3s ease;
+    }
+
+    .btn-animated:hover::after {
+      height: 100%;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 500px;
+    }
+	
+	@keyframes fadeInLeft {
+      0% { opacity: 0; transform: translateX(-40px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .fade-in-left {
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+
+    @media (max-width: 767px) {
+      .fixed-image {
+        position: static;
+        margin-bottom: 30px;
+      }
+    }
+	/*--section end-----------------------------------------------------------------------------------------------*/
+	
+	/*--Rating start----------------------------------------------------------------------------------*/
+
+ .rating-banner {
+      background-color: #6164a7;
+      color: white;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .rating-item {
+      display: inline-block;
+      padding: 0 50px;
+      border-right: 2px solid white;
+    }
+
+    @media (max-width: 768px) {
+      .scrolling-text {
+        font-size: 0.9rem;
+      }
+
+      .rating-item {
+        padding: 0 30px;
+      }
+    }
+
+/*--Rating end----------------------------------------------------------------------------------*/
+	
+	/*--Footer start----------------------------------------------------------------------------------*/
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+footer img {
+  border-radius: 8px;
+  background:white;
+}
+/*--Footer end----------------------------------------------------------------------------------*/
+	</style>
+	</head>
+<body>
+
+<!-- Header Section -->
+<div class="top-header">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <div><img src="tuitionlogo.png" alt="Logo" class="logo-img" /></div>
+      <div class="d-flex gap-2 mt-2 mt-md-0">
+        <button class="contact-btn">+91 638 624 23XX</button>
+        <button class="contact-btn">education@the-tuition.com</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Header section end-------------------------------------------------------------------------------------------------->
+
+<!-- section start-------------------------------------------------------------------------------------------------->
+<div class="container section">
+    <div class="row align-items-center">
+      
+      <!-- Right Side Image -->
+      <div class="col-lg-5 order-lg-2 text-center fixed-image">
+        <img src="c-image.png" alt="Abacus Kid" class="abacus-img" />
+      </div>
+
+      <!-- Left Side Content -->
+      <div class="col-lg-7 order-lg-1 fade-in-left" id="textContent">
+        <p>
+        Dive into the world of Windows application and game development with our comprehensive C# classes. Our skilled C# teachers will teach you the essentials of C# programming, from syntax to advanced concepts. Gain the skills you need to create robust and efficient software. Ready to bring your ideas to life? Take our C# programming class and start your career in software development   </p>
+
+       <button type="submit" class="btn btn-animated fade-in-left" onclick="location.href='freeDemoClass.html'">Book Demo Class</button>
+	  </div>
+
+    </div>
+	
+  </div>
+<!-- section end-------------------------------------------------------------------------------------------------->
+
+<!--Rating start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="rating-banner">
+  <marquee  scrollamount="8">
+    <div class="scrolling-text">
+      <div class="rating-item">QUALITY TEACHER ⭐ 4.9/5</div>
+      <div class="rating-item">PUNCTUALITY AND PROFESSIONALISM ⭐ 4.8/5</div>
+      <div class="rating-item">STUDENT SATISFACTION ⭐ 4.9/5</div>
+      <div class="rating-item">SEAMLESS LEARNING EXPERIENCE ⭐ 5/5</div>
+      <div class="rating-item" style="border-right:none">PERSONALIZED ATTENTION ⭐ 4.7/5</div>
+    </div>
+	</marquee>
+  </div>
+
+<!--Rating end-------------------------------------------------------------------------------------------------------------------------->
+
+
+
+<!--footer Start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Footer -->
+<footer class=" text-white pt-4 pb-3 mt-1" style="background:#6164a7">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo and Description -->
+      <div class="col-md-4 col-sm-12 mb-4 text-center text-md-left">
+        <img src="tuitionlogo.png" alt="The Tuition Logo" width="120" class="mb-2">
+        <p>Helping students and teachers connect for better learning and growth.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="TheTuition.html" class="footer-link">Home</a></li>
+          <li><a href="studentEnroll.html" class="footer-link">Enroll as Student</a></li>
+          <li><a href="TeacherEnroll.html" class="footer-link">Enroll as Teacher</a></li>
+          <li><a href="aboutus.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5 onclick="location.href='contact.html'" style="cursor:pointer">Contact Us</h5>
+        <p>📞 +91 638 624 23XX</p>
+        <p>✉️ education@the-tuition.com</p>
+        <p>📍 Raebareli, Uttar Pradesh</p>
+      </div>
+
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 The Tuition. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!--footer end-------------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>

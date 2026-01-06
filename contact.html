@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+<style>
+/*--Menu start----------------------------------------------------------------------------------*/
+ .top-blue-bar {
+      background: linear-gradient(90deg, #ef3938, #f76333, #f58e29, #fbb428, #6bb657, #31a4a9, #6164a7);
+      color: white;
+      font-size: 14px;
+      padding: 5px 15px;
+    }
+
+    .main-navbar {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .main-navbar .nav-link {
+      color: #000;
+      font-weight: 500;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .dropdown-toggle::after {
+      display: none;
+    }
+
+    .dropdown-icon {
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .dropdown-menu {
+      border-bottom: 5px solid #6164a7;
+      border-radius: 10px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-link:hover {
+      color: #6164a7;
+    }
+
+    .glow-on-hover {
+      width: 150px;
+      height: 30px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background: #111;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+
+    .glow-on-hover:before {
+      content: '';
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+    }
+
+    .glow-on-hover:hover:before {
+      opacity: 1;
+    }
+
+    .glow-on-hover:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+    }
+
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+
+    .rotating-border-btn {
+      position: relative;
+      padding: 8px 28px;
+      font-size: 16px;
+      background: pink;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 40px;
+    }
+
+    .rotating-border-btn::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffff, #ff00cc);
+      z-index: -1;
+      border-radius: 12px;
+      animation: rotateBorder 4s linear infinite;
+      background-size: 300% 300%;
+    }
+
+    .rotating-border-btn::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: #111;
+      z-index: -1;
+      border-radius: 8px;
+    }
+
+    @keyframes rotateBorder {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 767px) {
+      .dropdown-menu {
+        width: 100% !important;
+        position: static !important;
+        float: none !important;
+      }
+
+      .top-blue-bar {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+	
+/*--Menu End----------------------------------------------------------------------------------*/
+/*--Get in touch start----------------------------------------------------------------------------------*/
+.overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .form-content {
+      padding: 30px;
+    }
+
+    .form-image {
+      width: 100%;
+      height: 250px;
+      background: url('get-touch1.png') no-repeat center center/cover;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #6164a7;
+      font-weight: bold;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+
+    .get-touch {
+      background: #6164a7;
+      color: white;
+    }
+
+    .get-touch:hover {
+      background: linear-gradient(90deg, #ef3938, #f76333, #f58e29, #fbb428, #6bb657, #31a4a9, #6164a7);
+      color: white;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .form-layout {
+        display: flex;
+      }
+
+      .form-content,
+      .form-image {
+        flex: 1;
+      }
+
+      .form-image {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .form-content {
+        padding: 20px;
+      }
+
+      .form-image {
+        height: 200px;
+      }
+
+      .success-message {
+        font-size: 14px;
+      }
+
+      .form-container {
+        border-radius: 5px;
+      }
+    }
+/*--Get in touch End----------------------------------------------------------------------------------*/
+
+.about-us-section {
+      position: relative;
+      background: url('contactusImage.jpg') no-repeat center center/cover;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .about-us-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(97, 100, 167, 0.8); /* Same as the blue overlay in your screenshot */
+      z-index: 1;
+    }
+
+    .about-us-text {
+      position: relative;
+      z-index: 2;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .about-us-text {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-us-text {
+        font-size: 1.5rem;
+      }
+    }
+	
+	
+	.contact-box {
+      background-color: #6164a7;
+      color: #fff;
+      text-align: center;
+      padding: 20px 20px;
+      margin: 20px 0;
+      border: 2px solid transparent;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .contact-box i {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .contact-box::before,
+    .contact-box::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #001f4d;
+      transition: 0.3s ease-in-out;
+    }
+
+    .contact-box::before {
+      top: -10px;
+      left: -10px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .contact-box::after {
+      bottom: -10px;
+      right: -10px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .contact-box:hover::before {
+      top: 0;
+      left: 0;
+    }
+
+    .contact-box:hover::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .corner-patch {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      background-color: #001f4d;
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+
+    @media (min-width: 768px) {
+      .contact-row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .contact-col {
+        flex: 1;
+        margin: 0 10px;
+      }
+    }
+	
+	
+	
+	.contact-section {
+      padding: 20px 20px;
+    }
+
+    .contact-title {
+      font-weight: 700;
+      color: #6164a7;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-control, .form-select {
+      border-radius: 0.5rem;
+    }
+
+    .btn-send {
+      background-color: #bebfda;
+      color: black;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 10px 20px;
+	  border:2px solid #6164a7;
+    }
+
+    .btn-send:hover {
+      background-color: #6164a7;
+	  color:white;
+	  border:2px solid #bebfda;
+    }
+
+    .success-msg {
+      color: green;
+      margin-top: 10px;
+      display: none;
+      font-weight: 600;
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .image-box {
+        padding-right: 40px;
+      }
+    }
+
+/*--Rating start----------------------------------------------------------------------------------*/
+
+ .rating-banner {
+      background-color: #6164a7;
+      color: white;
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      font-size: 1rem;
+    }
+
+    .rating-item {
+      display: inline-block;
+      padding: 0 50px;
+      border-right: 2px solid white;
+    }
+
+    @media (max-width: 768px) {
+      .scrolling-text {
+        font-size: 0.9rem;
+      }
+
+      .rating-item {
+        padding: 0 30px;
+      }
+    }
+
+/*--Rating end----------------------------------------------------------------------------------*/
+
+/*--Footer start----------------------------------------------------------------------------------*/
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+
+footer img {
+  border-radius: 8px;
+  background:white;
+}
+/*--Footer end----------------------------------------------------------------------------------*/
+</style>
+</head>
+<body>
+
+<!-- Top Gradient Bar -->
+<div class="top-blue-bar d-flex justify-content-between align-items-center flex-wrap">
+  <div><i class="fas fa-phone"></i> +91 638 624 23XX</div>
+  <div><i class="fas fa-envelope"></i> education@the-tuition.com</div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg main-navbar sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="tuitionlogo.png" alt="Logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center text-center text-lg-start">
+
+        <li class="nav-item">
+          <a class="nav-link" href="TheTuition.html">Home</a>
+        </li>
+
+        <!-- Enroll Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Enroll</a>
+          <div class="dropdown-menu p-3">
+            <a href="studentEnroll.html" class="dropdown-link"><i class="fa-solid fa-children"></i>&nbsp;For Students</a>
+            <a href="TeacherEnroll.html" class="dropdown-link"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;For Teachers</a>
+          </div>
+        </li>
+
+        <!-- Insights Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link" href="aboutus.html">About Us</a>
+        </li>
+
+        <!-- About Us Dropdown -->
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+
+        <!-- Get in Touch Button -->
+        <li class="nav-item mt-2 mt-lg-0">
+          <button class="glow-on-hover" onclick="openForm()">Get in Touch</button>
+        </li>
+
+        <!-- Logout Button -->
+        <li class="nav-item ms-2 mt-2 mt-lg-0">
+          <button class="rotating-border-btn" id="logoutBtn">Logout</button>
+        </li>
+
+        <!-- WhatsApp Icon -->
+        <li class="nav-item ms-2">
+          <a href="#" class="nav-link">
+            <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="height: 28px;">
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--get in touch start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Overlay Form -->
+<div class="overlay" id="formOverlay">
+  <div class="form-container">
+    <div class="close-btn" onclick="closeForm()">&times;</div>
+    <div class="form-layout flex-column flex-md-row">
+      <div class="form-content">
+        <h3 class="mb-2 text-center" style="color:#6164a7">Get In Touch!</h3>
+        <div class="success-message" id="successMsg">✅ Will contact you soon.</div>
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name*</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile Number*</label>
+            <input type="tel" class="form-control" id="mobile" pattern="[0-9]{10}" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">You are a*</label><br />
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="parent" value="Parent" required />
+              <label class="form-check-label" for="parent">Parent</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="role" id="student" value="Student" />
+              <label class="form-check-label" for="student">Student</label>
+            </div>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn get-touch mt-3">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="form-image"></div>
+    </div>
+  </div>
+</div>
+<!--get in touch end-------------------------------------------------------------------------------------------------------------------------->
+
+<section class="about-us-section">
+    <div class="about-us-overlay"></div>
+    <div class="about-us-text">Contact Us</div>
+  </section>
+  
+  
+  <div class="container py-5">
+    <div class="contact-row row">
+      <!-- Phone -->
+      <div class="contact-col col-md-4">
+        <div class="contact-box position-relative">
+          <p class="mb-0"><span style="font-size:1.4rem">📞</span><br/> +91 638 624 23XX</p>
+          <div class="corner-patch"></div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-col col-md-4">
+        <div class="contact-box position-relative">
+          <p class="mb-0"><span style="font-size:1.4rem">✉️</span><br/> education@e-tuitions.com</p>
+          <div class="corner-patch"></div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="contact-col col-md-4">
+        <div class="contact-box position-relative">
+          <p class="mb-0"><span style="font-size:1.4rem">📍</span><br/> Raebareli, Uttar Pradesh</p>
+          <div class="corner-patch"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <section class="contact-section container">
+  <div class="row align-items-center">
+    <!-- Image Column -->
+    <div class="col-md-6 image-box mb-4 mb-md-0">
+      <img src="Contact-us-image.gif" alt="Contact Us">
+    </div>
+
+     <!-- Contact Form Column -->
+    <div class="col-md-6">
+      <h2 class="contact-title">Contact Us</h2>
+      <p>
+        Our team is always ready to understand your needs and provide the much-needed support for you!
+        Please fill in your details in the contact form below, and our team will contact you soon.
+      </p>
+
+      <form id="contactUsForm">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="contactName" placeholder="Name*" required />
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" id="contactEmail" placeholder="Email*" required />
+        </div>
+        <div class="mb-3 d-flex">
+          <select class="form-select me-2" style="max-width: 100px;" id="countryCode" required>
+            <option value="+91" selected>IN +91</option>
+            <option value="+1">US +1</option>
+            <option value="+44">UK +44</option>
+          </select>
+          <input type="tel" class="form-control" id="contactPhone" placeholder="Contact Number" required />
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" id="contactMessage" rows="4" placeholder="Message*" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-send w-100">
+          Send Message <i class="bi bi-send-fill"></i>
+        </button>
+        <p class="success-msg" id="contactSuccessMsg">Message sent successfully!</p>
+      </form>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!--Rating start-------------------------------------------------------------------------------------------------------------------------->
+
+<div class="rating-banner">
+  <marquee  scrollamount="8">
+    <div class="scrolling-text">
+      <div class="rating-item">QUALITY TEACHER ⭐ 4.9/5</div>
+      <div class="rating-item">PUNCTUALITY AND PROFESSIONALISM ⭐ 4.8/5</div>
+      <div class="rating-item">STUDENT SATISFACTION ⭐ 4.9/5</div>
+      <div class="rating-item">SEAMLESS LEARNING EXPERIENCE ⭐ 5/5</div>
+      <div class="rating-item" style="border-right:none">PERSONALIZED ATTENTION ⭐ 4.7/5</div>
+    </div>
+	</marquee>
+  </div>
+
+<!--Rating end-------------------------------------------------------------------------------------------------------------------------->
+
+
+<!--footer Start-------------------------------------------------------------------------------------------------------------------------->
+<!-- Footer -->
+<footer class=" text-white pt-4 pb-3 mt-1" style="background:#6164a7">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo and Description -->
+      <div class="col-md-4 col-sm-12 mb-4 text-center text-md-left">
+        <img src="tuitionlogo.png" alt="The Tuition Logo" width="120" class="mb-2">
+        <p>Helping students and teachers connect for better learning and growth.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="TheTuition.html" class="footer-link">Home</a></li>
+          <li><a href="studentEnroll.html" class="footer-link">Enroll as Student</a></li>
+          <li><a href="TeacherEnroll.html" class="footer-link">Enroll as Teacher</a></li>
+		  <li><a href="aboutus.html" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-4 col-sm-6 mb-4">
+        <h5 onclick="location.href='contact.html'" style="cursor:pointer">Contact Us</h5>
+        <p>📞 +91 638 624 23XX</p>
+        <p>✉️ education@the-tuition.com</p>
+        <p>📍 Raebareli, Uttar Pradesh</p>
+      </div>
+
+    </div>
+
+    <hr class="bg-light">
+
+    <div class="text-center">
+      <p class="mb-0">&copy; 2025 The Tuition. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!--footer end-------------------------------------------------------------------------------------------------------------------------->
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script>
+// Logout
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  sessionStorage.clear();
+  window.location.href = "Tuitionlogin.html";
+});
+
+// get in Touch
+function openForm() {
+    document.getElementById("formOverlay").style.display = "flex";
+  }
+
+  function closeForm() {
+    document.getElementById("formOverlay").style.display = "none";
+    document.getElementById("contactForm").reset();
+    document.getElementById("successMsg").style.display = "none";
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const role = document.querySelector('input[name="role"]:checked');
+
+    if (name && mobile && role) {
+      document.getElementById("successMsg").style.display = "block";
+      setTimeout(() => {
+        closeForm();
+      }, 2000);
+    } else {
+      alert("Please fill all fields");
+    }
+    return false;
+  }
+  
+  // Contact Us Form
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("contactUsForm");
+  const successMsg = document.getElementById("contactSuccessMsg");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("contactName").value.trim();
+      const email = document.getElementById("contactEmail").value.trim();
+      const phone = document.getElementById("contactPhone").value.trim();
+      const message = document.getElementById("contactMessage").value.trim();
+
+      if (name && email && phone && message) {
+        successMsg.style.display = "block";
+        setTimeout(() => {
+          successMsg.style.display = "none";
+          form.reset();
+        }, 3000);
+      } else {
+        successMsg.style.display = "none";
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
