@@ -8,7 +8,7 @@ This project is built using **pure HTML, CSS, BootStrap, and JavaScript** and fo
 ## 🚀 Live Demo
 
 🔗 Website: https://thetuition.netlify.app/
-🔗 GitHub Repository: https://github.com/kartikeygupta-dev
+🔗 GitHub Repository: https://github.com/kartikeygupta-dev/theTuition.git
 
 ---
 
@@ -75,6 +75,6 @@ Other information is stored but not displayed.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/kartikeygupta-dev
+   git clone https://github.com/kartikeygupta-dev/theTuition.git
 
 
